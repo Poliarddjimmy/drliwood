@@ -7,13 +7,13 @@ const AudioPlayer = ({ file }) => {
   const { togglePlayPause, ready, loading, playing, stop, play, pause, stopped, ended } = useAudioPlayer({
     src: file,
     format: "mp3",
-    autoplay: true,
-    html5: true,
+    autoplay: false,
+    // html5: true,
     onend: () => console.log("sound has ended!"),
   })
 
   return (
-    <div id="jp_container_1" className="jp-audio" role="application" aria-label="media player">
+    <div id="jp_container_1" className="jp-audio audio" role="application" aria-label="media player">
       <div className="jp-type-single">
         <div className="jp-gui jp-interface  d-flex align-items-center justify-content-center" style={{ width: "100%", height: "100px" }}>
 

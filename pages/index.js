@@ -1,12 +1,16 @@
 import Image from 'next/image'
 
-// import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import 'react-h5-audio-player/lib/styles.css'
 import AudioPlayer from "../components/audio/audioPlayer"
+import AudioPlayerList from "../components/audio/audioPlayerList"
 import Navigation from "../components/layouts/navigation"
+import tracks from "./tracks"
 
 
 export default function Home() {
+
+  console.log(tracks)
+
   return (
     <div >
       <section className="banner">
@@ -178,6 +182,152 @@ export default function Home() {
         </div>
 
       </section>
+
+      <section className="schedule">
+        <div className="overlay"></div>
+        <div className="container content">
+          <div className="col-md-12 title wow animated fadeIn" data-wow-delay="0.3s"><h2>Upcoming Events</h2></div>
+          <div className="col-md-12">
+
+            <div className="schedrow wow animated fadeIn">
+              <div className="event">
+                <span className="bold"><i className="fa fa-microphone"></i>New Sound Wave</span>
+              </div>
+              <div className="location">
+                <span className="bold"><i className="fa fa-map-marker"></i>Camp Nou Stadium </span> / 12 August 2014
+              </div>
+              <div className="ticket">
+                <i className="fa fa-ticket"></i><span className="bold">$175</span> / 0 Available
+              </div>
+              <div className="button-wrap"><a href="" className="def-button soldout" target="_blank" rel="noreferrer">Sold Out</a></div>
+            </div>
+
+            <div className="schedrow wow animated fadeIn">
+              <div className="event">
+                <span className="bold"><i className="fa fa-microphone"></i>Hammersonic</span>
+              </div>
+              <div className="location">
+                <span className="bold"><i className="fa fa-map-marker"></i>Istora Senayan </span> / 12 October 2015
+              </div>
+              <div className="ticket">
+                <i className="fa fa-ticket"></i><span className="bold">$200</span> / 15 Available
+              </div>
+              <div className="button-wrap"><a href="" className="def-button" target="_blank" rel="noreferrer">Buy Ticket</a></div>
+            </div>
+
+            <div className="schedrow wow animated fadeIn">
+              <div className="event">
+                <span className="bold"><i className="fa fa-microphone"></i>Bandung Berisik</span>
+              </div>
+              <div className="location">
+                <span className="bold"><i className="fa fa-map-marker"></i>Brigif Kujang 15</span> / 28 August 2015
+              </div>
+              <div className="ticket">
+                <i className="fa fa-ticket"></i><span className="bold">$250</span> / 100 Available
+              </div>
+              <div className="button-wrap"><a href="" className="def-button" target="_blank" rel="noreferrer">Buy Ticket</a></div>
+            </div>
+
+            <div className="schedrow wow animated fadeIn">
+              <div className="event">
+                <span className="bold"><i className="fa fa-microphone"></i>Hellprint Festival</span>
+              </div>
+              <div className="location">
+                <span className="bold"><i className="fa fa-map-marker"></i>Lanud Sulaeman </span> / 17 September 2015
+              </div>
+              <div className="ticket">
+                <i className="fa fa-ticket"></i><span className="bold">$150</span> / 0 Available
+              </div>
+              <div className="button-wrap"><a href="" className="def-button soldout" target="_blank" rel="noreferrer">Cancelled</a></div>
+            </div>
+
+            <div className="schedrow wow animated fadeIn">
+              <div className="event">
+                <span className="bold"><i className="fa fa-microphone"></i>Indie Ground</span>
+              </div>
+              <div className="location">
+                <span className="bold"><i className="fa fa-map-marker"></i>Plaza Parahyangan </span> / 12 August 2014
+              </div>
+              <div className="ticket">
+                <i className="fa fa-ticket"></i><span className="bold">$50</span> / 5 Available
+              </div>
+              <div className="button-wrap"><a href="" className="def-button" target="_blank" rel="noreferrer">Buy Ticket</a></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section className="about">
+        <div className="container">
+          <div className="col-md-6 col-sm-6">
+            <div className="personnel wow animated fadeIn" data-wow-delay="0.2s">
+              <div className="title">
+                <h3>
+                  All About <br />
+                  <span className="bold orange">Our Band</span>
+                </h3>
+              </div>
+              <div className="personnel-list">
+                <div className="shape photo item" style={{ backgroundImage: "url(/images/personnel1.jpg)" }}>
+                  <a href="about.html" className="overlay">
+                    <div className="name">
+                      Johnny Doe
+                    </div>
+                  </a>
+                </div>
+                <div className="shape photo item" style={{ backgroundImage: "url(assets/images/personnel2.jpg)" }}>
+                  <a href="about.html" className="overlay">
+                    <div className="name">
+                      Collins
+                    </div>
+                  </a>
+                </div>
+                <div className="shape photo item" style={{ backgroundImage: "url(assets/images/personnel3.jpg)" }}>
+                  <a href="about.html" className="overlay">
+                    <div className="name">
+                      Daniel Davids
+                    </div>
+                  </a>
+                </div>
+                <div className="shape photo item" style={{ backgroundImage: "url(assets/images/personnel4.jpg)" }}>
+                  <a href="about.html" className="overlay">
+                    <div className="name">
+                      Tiffany
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div className="text">
+                <p>Cras viverra consequat massa eu pulvinar. Suspendisse porta sem ac erat euismod mollis. Donec sit amet sapien id lacus accumsan gravida. Phasellus in sagittis erat, a dictum diam. Donec in dui odio. Vivamus non facilisis nulla. In turpis dolor, dapibus ut lacus.</p>
+                <p>Nunc porta augue ut dolor faucibus tempus. Fusce non eros quis enim pulvinar cursus vitae eget quam. Nam posuere pharetra venenatis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-6 col-sm-6">
+            <div className="discography wow animated fadeIn" data-wow-delay="0.4s">
+              <div className="title">
+                <h3>
+                  Discography <br />
+                  <span className="bold orange">Of Our Music</span>
+                </h3>
+              </div>
+              <div className="content">
+
+                <div id="jquery_jplayer_2" className="jp-jplayer"></div>
+                <AudioPlayerList file="/musics/exo1.mp3" />
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
 
 
     </div>

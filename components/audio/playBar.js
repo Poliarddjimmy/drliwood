@@ -54,7 +54,7 @@ import { useAudioPosition } from "react-use-audio-player"
         min={0}
         max={100}
         onChange={handleChange}
-        value={currentPosition.toFixed(1)}
+        value={currentPosition.toFixed(3)}
         title="Range you want!"
       />
       <div className="d-flex justify-content-between mt-1">
