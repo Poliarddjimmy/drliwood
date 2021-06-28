@@ -1,15 +1,28 @@
-import Image from 'next/image'
-
-import 'react-h5-audio-player/lib/styles.css'
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import AudioPlayer from "../components/audio/audioPlayer"
 import AudioPlayerList from "../components/audio/audioPlayerList"
 import Navigation from "../components/layouts/navigation"
-import tracks from "./tracks"
+import tracks from "./tracks.json"
+import Footer from "../components/layouts/footer"
 
 
 export default function Home() {
 
-  console.log(tracks)
+  const [musicSelected, setMusicSelected] = useState();
+  const [next, setNext] = useState();
+
+  useEffect(() => {
+    setMusicSelected({ ...tracks[0], track: 0, autoPlay: false })
+  }, [])
+
+  useEffect(() => {
+    next && tracks[next] && setMusicSelected({ ...tracks[next], track: next, autoPlay: true  })
+    next === 0 && setMusicSelected({ ...tracks[0], track: 0, autoPlay: true  })
+  }, [next])
+
+
 
   return (
     <div >
@@ -78,36 +91,17 @@ export default function Home() {
               </div>
             </a>
           </div>
-
-
         </div>
-        <div id="jquery_jplayer_1" className="jp-jplayer"></div>
         <AudioPlayer file="/musics/example.mp3" />
       </section>
 
-
-      <nav className="navbar fixonscroll solidnavbar navbar-inverse" role="navigation" id="home-nav">
-        <div className="container">
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <a className="navbar-brand" href="#"><Image src="/images/logo-dark.png" width={100} height={100} alt="Jukebox Logo" /></a>
-          </div>
-
-          <Navigation />
-        </div>
-      </nav>
-
+      <Navigation />
 
       <section className="latest-album">
         <div className="container">
           <div className="col-md-3 col-sm-3 intro-wrap">
             <div className="intro wow animated fadeIn" data-wow-delay="0.3s">
-              <h3>Latest Album</h3>
+              <h3>Latest Works</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae lectus ac erat dapibus lobortis. Sed fermentum, ante quis mollis fringilla, augue sapien volutpat dolor, sit amet condimentum orci risus id purus.</p>
               <a href="album-3columns-filter.html"><div className="def-button">View All</div></a>
             </div>
@@ -178,9 +172,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
-
       </section>
 
       <section className="schedule">
@@ -266,32 +258,32 @@ export default function Home() {
               <div className="title">
                 <h3>
                   All About <br />
-                  <span className="bold orange">Our Band</span>
+                  <span className="bold orange">DRLiwood</span>
                 </h3>
               </div>
               <div className="personnel-list">
-                <div className="shape photo item" style={{ backgroundImage: "url(/images/personnel1.jpg)" }}>
-                  <a href="about.html" className="overlay">
+                <div className="shape photo item" style={{ backgroundImage: "url(/images/users/jr.jpg)" }}>
+                  <a href="" className="overlay">
                     <div className="name">
-                      Johnny Doe
+                      Jimmy Rock
                     </div>
                   </a>
                 </div>
-                <div className="shape photo item" style={{ backgroundImage: "url(assets/images/personnel2.jpg)" }}>
+                <div className="shape photo item" style={{ backgroundImage: "url(/images/users/jr.jpg)" }}>
                   <a href="about.html" className="overlay">
                     <div className="name">
                       Collins
                     </div>
                   </a>
                 </div>
-                <div className="shape photo item" style={{ backgroundImage: "url(assets/images/personnel3.jpg)" }}>
+                <div className="shape photo item" style={{ backgroundImage: "url(/images/users/jr.jpg)" }}>
                   <a href="about.html" className="overlay">
                     <div className="name">
                       Daniel Davids
                     </div>
                   </a>
                 </div>
-                <div className="shape photo item" style={{ backgroundImage: "url(assets/images/personnel4.jpg)" }}>
+                <div className="shape photo item" style={{ backgroundImage: "url(/images/users/jr.jpg)" }}>
                   <a href="about.html" className="overlay">
                     <div className="name">
                       Tiffany
@@ -315,11 +307,33 @@ export default function Home() {
                 </h3>
               </div>
               <div className="content">
+                <div id="jp_container_2" className="jp-audio " role="application" aria-label="media player">
+                  <div className="jp-type-playlist">
 
-                <div id="jquery_jplayer_2" className="jp-jplayer"></div>
-                <AudioPlayerList file="/musics/exo1.mp3" />
+                    <AudioPlayerList
+                      file={musicSelected}
+                      autoPlay={musicSelected?.id !== tracks[0].id}
+                      setNext={setNext}
+                    />
 
+                    <div className="jp-playlist mb-n3">
+                      <ul className="p-0">
+                        {tracks.map((track, idx) =>
+                          <li
+                            key={idx}
+                            className={`d-block ${musicSelected?.id === track.id && "main-bg"} cursor-pointer`}
+                            onClick={() => setMusicSelected({...track, track: idx, autoPlay: true })}
+                          >
+                            <div className="ml-4 mr-4">
+                              <i className="fa fa-music mr-3" aria-hidden="true"></i> {track.title}
+                            </div>
+                          </li>
+                        )}
+                      </ul>
+                    </div>
 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -328,7 +342,99 @@ export default function Home() {
       </section>
 
 
+      <section className="gallery">
+        <div className="overlay"></div>
+        <div className="container content">
+          <div className="title wow animated fadeInDown"><h2>Latest Photos</h2></div>
+          <div className="diamond-grid">
 
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="0.2s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery1.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery1.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="0.4s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery2.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery2.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="0.6s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery3.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery3.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="0.7s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery4.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery4.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="0.8s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery5.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery5.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="0.9s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery6.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery6.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="diamond-wrap wow animated fadeIn" data-wow-delay="1s">
+              <div className="shape photo" style={{ background: "url(assets/images/front-gallery7.jpg)" }}>
+                <a className="fancybox" href="assets/images/front-gallery7.jpg" data-fancybox-group="front-gallery">
+                  <div className="overlay-black"></div>
+                  <div className="overlay">
+                    <div className="text"><span>View Photo</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="bottom-text">
+            PHOTOS FROM OUR INSTAGRAM | FOLLOW AT @Awesomeband
+          </div>
+        </div>
+      </section>
+
+
+      <Footer />
 
     </div>
   )

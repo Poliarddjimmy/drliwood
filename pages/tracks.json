@@ -14,5 +14,29 @@
     "audioSrc": "/musics/exo1.mp3",
     "image": "/assets/artwork2.jpg",
     "color": "#ffb77a"
+  },
+  {
+    "id": 3,
+    "title": "50",
+    "artist": "tobylane",
+    "audioSrc": "/musics/example.mp3",
+    "image": "/assets/artwork2.jpg",
+    "color": "#ffb77a"
+  },
+  {
+    "id": 4,
+    "title": "50",
+    "artist": "tobylane",
+    "audioSrc": "/musics/exo1.mp3",
+    "image": "/assets/artwork2.jpg",
+    "color": "#ffb77a"
+  },
+  {
+    "id": 5,
+    "title": "50",
+    "artist": "tobylane",
+    "audioSrc": "/musics/example.mp3",
+    "image": "/assets/artwork2.jpg",
+    "color": "#ffb77a"
   }
 ]
