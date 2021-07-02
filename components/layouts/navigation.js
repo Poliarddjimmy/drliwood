@@ -1,7 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
+import {useRouter} from "next/router"
 
 export default function Navigation({ position }) {
+  const router = useRouter()
+
   return (
     <nav className="navbar navbar-inverse navbar-fixed-top navbar-page" style={{ position: position }} role="navigation" id="home-nav">
       <div className="container">
@@ -21,11 +24,11 @@ export default function Navigation({ position }) {
               <Link href="/" passHref><a className="brand"><Image src="/images/logo.png" className="mt-2" width={100} height={30} alt="Jukebox Logo" /></a></Link>
             </li>
 
-            <li><Link href="/"><a className="mt-n1">Home</a></Link></li>
+            <li className="active"><Link href="/"><a className="mt-n1" style={{ color: router.asPath === "/" && "#F10278" }}>Home</a></Link></li>
 
             <li className="dropdown active">
-              <Link href="/" passHref>
-                <a className="dropdown-toggle mt-n1" data-toggle="dropdown">Event</a>
+              <Link href="/events" passHref>
+                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/events" && "#F10278" }} data-toggle="dropdown">Event</a>
               </Link>
               <ul className="dropdown-menu animated fadeIn" role="menu">
                 <li><Link href="/">Event List</Link></li>
@@ -35,7 +38,7 @@ export default function Navigation({ position }) {
 
             <li className="dropdown">
               <Link href="/works">
-                <a className="dropdown-toggle mt-n1" data-toggle="dropdown">Works</a>
+                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/works" && "#F10278" }} data-toggle="dropdown">Works</a>
               </Link>
               <ul className="dropdown-menu animated fadeIn" role="menu">
                 <li><Link href="/">Album 3 Columns</Link></li>
@@ -44,8 +47,8 @@ export default function Navigation({ position }) {
             </li>
 
             <li className="dropdown">
-              <Link href="/" >
-                <a className="dropdown-toggle mt-n1" data-toggle="dropdown">
+              <Link href="/sales" >
+                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/sales" && "#F10278" }}  data-toggle="dropdown">
                   Sales
                 </a>
               </Link>
