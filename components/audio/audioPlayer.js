@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useAudioPlayer } from "react-use-audio-player"
 import PlayBar from "./playBar"
 import VolumeControl from "./volumeControl"
+import { useRouter } from "next/router"
 
 const AudioPlayer = ({ file }) => {
   const { togglePlayPause, ready, loading, playing, stop, play, pause, stopped, ended } = useAudioPlayer({
@@ -11,6 +12,13 @@ const AudioPlayer = ({ file }) => {
     // html5: true,
     onend: () => console.log("sound has ended!"),
   })
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router && stop();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router])
 
   return (
     <div id="jp_container_1" className="jp-audio audio" role="application" aria-label="media player">

@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useAudio } from 'react-use';
+import { useRouter } from 'next/router';
 
 const AudioPlayerList = ({ file, setNext }) => {
   const[selectedFile, setSelectedFile] =useState()
+  const router = useRouter()
 
   const [audio, state, controls, ref] = useAudio({
     src: selectedFile?.audioSrc,
@@ -56,6 +58,12 @@ const AudioPlayerList = ({ file, setNext }) => {
     setPause(true)
     setSelectedFile()
   }
+
+
+  useEffect(() => {
+    router && stop();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router])
 
   // const handleChange = useCallback(
   //   (slider) => {

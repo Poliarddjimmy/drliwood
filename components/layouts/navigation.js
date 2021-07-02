@@ -28,7 +28,7 @@ export default function Navigation({ position }) {
 
             <li className="dropdown active">
               <Link href="/events" passHref>
-                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/events" && "#F10278" }} data-toggle="dropdown">Event</a>
+                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/events" && "#F10278" }} data-toggle="dropdown">Events</a>
               </Link>
               <ul className="dropdown-menu animated fadeIn" role="menu">
                 <li><Link href="/">Event List</Link></li>
