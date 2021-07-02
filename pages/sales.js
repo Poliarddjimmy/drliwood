@@ -2,7 +2,7 @@ import Layout from "../components/layouts/layout";
 import Image from "next/image";
 
 const Sales = () => {
-  return <Layout>
+  return <Layout title="Sales">
     <section className="banner-title album-banner" style={{ backgroundP: "50% 0px" }}>
       <div className="overlay"></div>
       <div className="container content">

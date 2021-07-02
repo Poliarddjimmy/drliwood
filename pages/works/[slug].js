@@ -22,7 +22,7 @@ const SingleWork = () => {
     mouseHove && setMouseHover(mouseHove)
   }, [mouseHove])
 
-  return <Layout>
+  return <Layout title="Works-work-slug">
     <section className="banner-title album-banner" style={{ backgroundPosition: "50% 0px" }}>
       <div className="overlay"></div>
       <div className="container content">

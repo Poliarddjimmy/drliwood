@@ -6,6 +6,7 @@ import AudioPlayerList from "../components/audio/audioPlayerList"
 import Navigation from "../components/layouts/navigation"
 import tracks from "./tracks.json"
 import Footer from "../components/layouts/footer"
+import SEO from "../components/layouts/SEO"
 
 
 export default function Home() {
@@ -18,12 +19,13 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    next && tracks[next] && setMusicSelected({ ...tracks[next], track: next, autoPlay: true  })
-    next === 0 && setMusicSelected({ ...tracks[0], track: 0, autoPlay: true  })
+    next && tracks[next] && setMusicSelected({ ...tracks[next], track: next, autoPlay: true })
+    next === 0 && setMusicSelected({ ...tracks[0], track: 0, autoPlay: true })
   }, [next])
 
   return (
     <div >
+      <SEO title="Home" />
       <section className="banner">
         <div id="banner-carousel" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
@@ -320,7 +322,7 @@ export default function Home() {
                           <li
                             key={idx}
                             className={`d-block ${musicSelected?.id === track.id && "main-bg"} cursor-pointer`}
-                            onClick={() => setMusicSelected({...track, track: idx, autoPlay: true })}
+                            onClick={() => setMusicSelected({ ...track, track: idx, autoPlay: true })}
                           >
                             <div className="ml-4 mr-4">
                               <i className="fa fa-music mr-3" aria-hidden="true"></i> {track.title}

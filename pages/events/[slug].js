@@ -9,7 +9,7 @@ const SingleEvent = () => {
     mouseHove && setMouseHover(mouseHove)
   }, [mouseHove])
 
-  return <Layout>
+  return <Layout title="Events-event-slug">
     <section className="banner-title album-banner" style={{ backgroundPosition: "50% 0px" }}>
       <div className="overlay"></div>
       <div className="container content">

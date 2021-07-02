@@ -10,7 +10,7 @@ const Works = () => {
     mouseHove && setMouseHover(mouseHove)
   }, [mouseHove])
 
-  return <Layout>
+  return <Layout title="Works">
     <section className="banner-title album-banner" style={{ backgroundP: "50% 0px" }}>
       <div className="overlay"></div>
       <div className="container content">

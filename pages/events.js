@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link"
 
 const Events = () => {
-  return <Layout>
+  return <Layout title="Events">
     <section className="banner-title album-banner" style={{ backgroundP: "50% 0px" }}>
       <div className="overlay"></div>
       <div className="container content">
