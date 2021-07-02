@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import {useRouter} from "next/router"
+import { useRouter } from "next/router"
 
 export default function Navigation({ position }) {
   const router = useRouter()
@@ -25,10 +25,33 @@ export default function Navigation({ position }) {
             </li>
 
             <li className="active"><Link href="/"><a className="mt-n1" style={{ color: router.asPath === "/" && "#F10278" }}>Home</a></Link></li>
+            <li className="dropdown">
+              <Link href="/works">
+                <a
+                  className="dropdown-toggle mt-n1"
+                  style={{
+                    color: (router.pathname === "/works" || router.pathname === "/works/[slug]") && "#F10278"
+                  }}
+                  data-toggle="dropdown"
+                >
+                  Works
+                </a>
+              </Link>
+              <ul className="dropdown-menu animated fadeIn" role="menu">
+                <li><Link href="/">Album 3 Columns</Link></li>
+                <li><Link href="/">Album 3 Columns Filterable</Link></li>
+              </ul>
+            </li>
 
             <li className="dropdown active">
               <Link href="/events" passHref>
-                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/events" && "#F10278" }} data-toggle="dropdown">Events</a>
+                <a
+                  className="dropdown-toggle mt-n1"
+                  style={{ color: (router.pathname === "/events" || router.pathname === "/events/[slug]") && "#F10278" }}
+                  data-toggle="dropdown"
+                >
+                  Events
+                </a>
               </Link>
               <ul className="dropdown-menu animated fadeIn" role="menu">
                 <li><Link href="/">Event List</Link></li>
@@ -37,24 +60,14 @@ export default function Navigation({ position }) {
             </li>
 
             <li className="dropdown">
-              <Link href="/works">
-                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/works" && "#F10278" }} data-toggle="dropdown">Works</a>
-              </Link>
-              <ul className="dropdown-menu animated fadeIn" role="menu">
-                <li><Link href="/">Album 3 Columns</Link></li>
-                <li><Link href="/">Album 3 Columns Filterable</Link></li>
-              </ul>
-            </li>
-
-            <li className="dropdown">
               <Link href="/sales" >
-                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/sales" && "#F10278" }}  data-toggle="dropdown">
+                <a className="dropdown-toggle mt-n1" style={{ color: router.asPath === "/sales" && "#F10278" }} data-toggle="dropdown">
                   Sales
                 </a>
               </Link>
               <ul className="dropdown-menu animated fadeIn" role="menu">
-                <li><Link href="/">Album 3 Columns</Link></li>
-                <li><Link href="/">Album 3 Columns Filterable</Link></li>
+                <li><Link href="/">Music</Link></li>
+                <li><Link href="/">Instrumental</Link></li>
               </ul>
             </li>
           </ul>
