@@ -5,7 +5,7 @@ import Navigation from "./navigation";
 const Layout = ({ children }) => {
   return (
     <Fragment>
-      <Navigation position="absolute" />
+      <Navigation position="fixed" />
       {children}
       <Footer />
     </Fragment>

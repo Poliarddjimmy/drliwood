@@ -65,18 +65,6 @@ const AudioPlayerList = ({ file, setNext }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 
-  // const handleChange = useCallback(
-  //   (slider) => {
-  //     const positionValue = parseFloat(
-  //       (Number(slider.target.value) / 100).toFixed(2)
-  //     )
-  //     alert(slider.target.value)
-  //     controls.seek(state.time * positionValue)
-  //   },
-  //   [controls, state.time]
-
-  // )
-
   const handleChange = slider => {
     controls.seek(slider.target.value)
   }
@@ -121,11 +109,11 @@ const AudioPlayerList = ({ file, setNext }) => {
           <i className={`fa fa-pause-circle fa-2x mr-2 cursor-pointer ${pause && state.time > 0 && 'primary-color'}`} onClick={() => setTopause()} aria-hidden="true"></i>
           <i className={`fa fa-stop-circle fa-2x cursor-pointer ${pause && state.time === 0 && 'primary-color'}`} onClick={() => stop()} aria-hidden="true"></i>
 
-          <i className="fa fa-forward fa-2x ml-4 mr-4 cursor-pointer" onClick={()=> setNext(file?.track + 1)} aria-hidden="true"></i>
+          <i className="fa fa-forward fa-2x ml-4 cursor-pointer" onClick={()=> setNext(file?.track + 1)} aria-hidden="true"></i>
         </div>
-        <div className="jp-progress">
+        <div className="jp-progress" style={{ width: "40%", marginLeft: "4%", marginRight: "4%"  }}>
           <div className="jp-seek-bar" style={{ width: "100%" }}>
-            <div className="jp-play-bar w-100" style={{ marginLeft: "4%", marginRight: "4%" }}>
+            <div className="jp-play-bar w-100">
               <div className="d-flex justify-content-between"> title </div>
               <input
                 className="kkkl w-100"

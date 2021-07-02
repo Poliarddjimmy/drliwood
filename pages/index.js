@@ -22,8 +22,6 @@ export default function Home() {
     next === 0 && setMusicSelected({ ...tracks[0], track: 0, autoPlay: true  })
   }, [next])
 
-
-
   return (
     <div >
       <section className="banner">
@@ -331,7 +329,6 @@ export default function Home() {
                         )}
                       </ul>
                     </div>
-
                   </div>
                 </div>
               </div>
