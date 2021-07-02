@@ -1,5 +1,6 @@
 import Layout from "../components/layouts/layout";
 import Image from "next/image";
+import Link from "next/link"
 
 const Events = () => {
   return <Layout>
@@ -30,33 +31,38 @@ const Events = () => {
             <h2>August <span className="orange">{(new Date()).getFullYear()}</span></h2>
           </div>
           <div className="content">
-            <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
-              <div className="overlay"></div>
-              <div className="event">
-                <span className="bold"><i className="fa fa-microphone"></i>New Sound Wave</span>
-              </div>
-              <div className="location">
-                <span className="bold"><i className="fa fa-map-marker"></i>Camp Nou Stadium </span> / 12 August 2014
-              </div>
-              <div className="ticket">
-                <i className="fa fa-ticket"></i><span className="bold">$200</span> / 100 Available
-              </div>
-              <div className="button-wrap"><a href="#" className="def-button">Buy Ticket</a></div>
-            </div>
 
-            <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
-              <div className="overlay"></div>
-              <div className="event">
-                <span className="bold"><i className="fa fa-microphone"></i>Hammersonic</span>
+            <Link href="/events/event-slug" passHref>
+              <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
+                <div className="overlay"></div>
+                <div className="event">
+                  <span className="bold"><i className="fa fa-microphone"></i>New Sound Wave</span>
+                </div>
+                <div className="location">
+                  <span className="bold"><i className="fa fa-map-marker"></i>Camp Nou Stadium </span> / 12 August 2014
+                </div>
+                <div className="ticket">
+                  <i className="fa fa-ticket"></i><span className="bold">$200</span> / 100 Available
+                </div>
+                <div className="button-wrap"><a href="#" className="def-button">Buy Ticket</a></div>
               </div>
-              <div className="location">
-                <span className="bold"><i className="fa fa-map-marker"></i>Istora Senayan </span> / 12 August {(new Date()).getFullYear()}
+            </Link>
+
+            <Link href="/events/event-slug" passHref>
+              <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
+                <div className="overlay"></div>
+                <div className="event">
+                  <span className="bold"><i className="fa fa-microphone"></i>Hammersonic</span>
+                </div>
+                <div className="location">
+                  <span className="bold"><i className="fa fa-map-marker"></i>Istora Senayan </span> / 12 August {(new Date()).getFullYear()}
+                </div>
+                <div className="ticket">
+                  <i className="fa fa-ticket"></i><span className="bold">$200</span> / 0 Available
+                </div>
+                <div className="button-wrap"><a href="#" className="def-button soldout">Soldout</a></div>
               </div>
-              <div className="ticket">
-                <i className="fa fa-ticket"></i><span className="bold">$200</span> / 0 Available
-              </div>
-              <div className="button-wrap"><a href="#" className="def-button soldout">Soldout</a></div>
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -65,33 +71,38 @@ const Events = () => {
             <h2>June <span className="orange">{(new Date()).getFullYear()}</span></h2>
           </div>
           <div className="content">
-            <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
-              <div className="overlay"></div>
-              <div className="event">
-                <span className="bold"><i className="fa fa-microphone"></i>New Sound Wave</span>
-              </div>
-              <div className="location">
-                <span className="bold"><i className="fa fa-map-marker"></i>Camp Nou Stadium </span> / June 1,  {(new Date()).getFullYear()}
-              </div>
-              <div className="ticket">
-                <i className="fa fa-ticket"></i><span className="bold">$200</span> / 0 Available
-              </div>
-              <div className="button-wrap"><a className="def-button soldout">Closed</a></div>
-            </div>
 
-            <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
-              <div className="overlay"></div>
-              <div className="event">
-                <span className="bold"><i className="fa fa-microphone"></i>Hammersonic</span>
+            <Link href="/events/event-slug" passHref>
+              <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
+                <div className="overlay"></div>
+                <div className="event">
+                  <span className="bold"><i className="fa fa-microphone"></i>New Sound Wave</span>
+                </div>
+                <div className="location">
+                  <span className="bold"><i className="fa fa-map-marker"></i>Camp Nou Stadium </span> / June 1,  {(new Date()).getFullYear()}
+                </div>
+                <div className="ticket">
+                  <i className="fa fa-ticket"></i><span className="bold">$200</span> / 0 Available
+                </div>
+                <div className="button-wrap"><a className="def-button soldout">Closed</a></div>
               </div>
-              <div className="location">
-                <span className="bold"><i className="fa fa-map-marker"></i>Istora Senayan </span> / June 12, {(new Date()).getFullYear()}
+            </Link>
+
+            <Link href="/events/event-slug" passHref>
+              <div className="schedrow wow animated fadeIn animated" style={{ visibility: "visible", animationName: "fadeIn" }}>
+                <div className="overlay"></div>
+                <div className="event">
+                  <span className="bold"><i className="fa fa-microphone"></i>Hammersonic</span>
+                </div>
+                <div className="location">
+                  <span className="bold"><i className="fa fa-map-marker"></i>Istora Senayan </span> / June 12, {(new Date()).getFullYear()}
+                </div>
+                <div className="ticket">
+                  <i className="fa fa-ticket"></i><span className="bold">$200</span> / 0 Available
+                </div>
+                <div className="button-wrap"><a className="def-button soldout">Closed</a></div>
               </div>
-              <div className="ticket">
-                <i className="fa fa-ticket"></i><span className="bold">$200</span> / 0 Available
-              </div>
-              <div className="button-wrap"><a className="def-button soldout">Closed</a></div>
-            </div>
+            </Link>
           </div>
         </div>
 

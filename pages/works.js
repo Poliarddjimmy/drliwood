@@ -1,7 +1,15 @@
+import { useState, useEffect } from "react";
 import Layout from "../components/layouts/layout";
 import Image from "next/image";
+import Link from "next/link"
 
 const Works = () => {
+  const [mouseHove, setMouseHover] = useState(false)
+
+  useEffect(() => {
+    mouseHove && setMouseHover(mouseHove)
+  }, [mouseHove])
+
   return <Layout>
     <section className="banner-title album-banner" style={{ backgroundP: "50% 0px" }}>
       <div className="overlay"></div>
@@ -41,12 +49,14 @@ const Works = () => {
             <div className="album-card">
               <div className="image hoverdir-target">
                 <Image src="/images/album1.jpg" width={700} height={700} alt="image" />
-                <div className="overlay" style={{ display: "block", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                  <div className="buy-wrapper" style={{ display: "table", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                    <div className="buy" style={{ display: "table-cell", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                      <a className="link" href="">
-                        <span><strong className="bold">View</strong><br />Tracks</span>
-                      </a>
+                <div className={`overlay work-overlay ${mouseHove && 'work-overlay-hover '}`}>
+                  <div className={`buy-wrapper work-overlay-table ${mouseHove && 'work-overlay-hover '}`}>
+                    <div className={`buy work-overlay-cell ${mouseHove && 'work-overlay-hover '}`}>
+                      <Link href="/works/single-work">
+                        <a className="link">
+                          <span><strong className="bold">View</strong><br />Tracks</span>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -63,12 +73,14 @@ const Works = () => {
             <div className="album-card">
               <div className="image hoverdir-target">
                 <Image src="/images/album2.jpg" width={700} height={700} alt="image" />
-                <div className="overlay" style={{ display: "block", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                  <div className="buy-wrapper" style={{ display: "table", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                    <div className="buy" style={{ display: "table-cell", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                      <a className="link" href="">
-                        <span><strong className="bold">View</strong><br />Tracks</span>
-                      </a>
+                <div className={`overlay work-overlay ${mouseHove && 'work-overlay-hover '}`}>
+                  <div className={`buy-wrapper work-overlay-table ${mouseHove && 'work-overlay-hover '}`}>
+                    <div className={`buy work-overlay-cell ${mouseHove && 'work-overlay-hover '}`}>
+                      <Link href="/works/single-work">
+                        <a className="link">
+                          <span><strong className="bold">View</strong><br />Tracks</span>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -85,12 +97,14 @@ const Works = () => {
             <div className="album-card">
               <div className="image hoverdir-target">
                 <Image src="/images/album3.jpg" width={700} height={700} alt="image" />
-                <div className="overlay" style={{ display: "block", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                  <div className="buy-wrapper" style={{ display: "table", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                    <div className="buy" style={{ display: "table-cell", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                      <a className="link" href="">
-                        <span><strong className="bold">View</strong><br />Tracks</span>
-                      </a>
+                <div className={`overlay work-overlay ${mouseHove && 'work-overlay-hover '}`}>
+                  <div className={`buy-wrapper work-overlay-table ${mouseHove && 'work-overlay-hover '}`}>
+                    <div className={`buy work-overlay-cell ${mouseHove && 'work-overlay-hover '}`}>
+                      <Link href="/works/single-work">
+                        <a className="link" href="">
+                          <span><strong className="bold">View</strong><br />Tracks</span>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -107,12 +121,14 @@ const Works = () => {
             <div className="album-card">
               <div className="image hoverdir-target">
                 <Image src="/images/album5.jpg" width={700} height={700} alt="image" />
-                <div className="overlay" style={{ display: "block", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                  <div className="buy-wrapper" style={{ display: "table", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                    <div className="buy" style={{ display: "table-cell", left: "0px", top: "-100%", transition: "all 300ms ease 0s" }}>
-                      <a className="link" href="">
-                        <span><strong className="bold">View</strong><br />Tracks</span>
-                      </a>
+                <div className={`overlay work-overlay ${mouseHove && 'work-overlay-hover '}`}>
+                  <div className={`buy-wrapper work-overlay-table ${mouseHove && 'work-overlay-hover '}`}>
+                    <div className={`buy work-overlay-cell ${mouseHove && 'work-overlay-hover '}`}>
+                      <Link href="/works/single-work">
+                        <a className="link" href="">
+                          <span><strong className="bold">View</strong><br />Tracks</span>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
